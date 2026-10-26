@@ -1,0 +1,42 @@
+{
+  "model": "BeliefPolicyNetV14",
+  "checkpoint": "C:\\Users\\p.menegatti\\PycharmProjects\\trionfo\\checkpoints_v14_epsilon_v3\\best.pt",
+  "checkpoint_sha256": "ca400fe381a58e067f228791e24d6809ecef3b34dbd56fcb80a4d62a4d2fe297",
+  "onnx_sha256": "00a7acc6820f546e595d80cf6a1fa44869b18688a058b4fa0f1439b0b37b5735",
+  "format_version": 1404,
+  "v3_cycle": 12850,
+  "global_cycle": 13400,
+  "model_config": {
+    "input_size": 398,
+    "width": 256,
+    "blocks": 4,
+    "belief_width": 64,
+    "belief_layout": "relative: self, next, teammate, previous",
+    "suit_layout": "V12 canonical: suit0=trump after selection, others per-hand shuffled"
+  },
+  "opset": 17,
+  "input": "observation[1,398]",
+  "outputs": [
+    "card_logits",
+    "trump_logits",
+    "value",
+    "card_q",
+    "trump_q",
+    "belief_card_probs",
+    "belief_suit_count_probs",
+    "belief_void_probs"
+  ],
+  "suit_encoding": "BEFORE trump use a stable priority permutation; AFTER trump model suit 0 is trump and other suits follow stable priority order",
+  "card_encoding": "model_card_id = model_suit_index*10 + rank; rank=3,2,Asso,Re,Cavallo,Fante,7,6,5,4",
+  "q_scale": "Q is normalized final HAND score differential; expected team-points regret = (maxQ - chosenQ)*14/2",
+  "max_abs_error": {
+    "card_logits": 2.86102294921875e-06,
+    "trump_logits": 2.1457672119140625e-06,
+    "value": 2.2724270820617676e-07,
+    "card_q": 2.4586915969848633e-07,
+    "trump_q": 9.685754776000977e-08,
+    "belief_card_probs": 4.76837158203125e-07,
+    "belief_suit_count_probs": 4.470348358154297e-07,
+    "belief_void_probs": 1.7881393432617188e-07
+  }
+}

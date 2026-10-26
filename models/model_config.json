@@ -1,0 +1,7 @@
+{
+  "modelPath": "models/trionfo_v14.onnx",
+  "inputName": "observation", "outputCardPolicy": "card_logits",
+  "outputTrumpPolicy": "trump_logits", "cardQOutputName": "card_q",
+  "observationSize": 398, "maxHandScorePoints": 14,
+  "regretScale": 7, "model": "BeliefPolicyNetV14"
+}
